@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id = "myCanvas" style="border: 1px solid black; " width="800px" height="800px"></canvas>
+    <script>
+        var circle = function(x,y,R) {
+            this.x = x;
+            this.y = y;
+            this.R = R;
+        }
+        function randomHex() {
+            return Math.floor(Math.random()*255);
+        }
+        function getColor() {
+            var red = randomHex() ;
+            var green = randomHex();
+            var blue = randomHex();
+            return "rgb(" + red + "," + green + "," + blue + "," + ")";
+        }
+        function createCircle() {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            var x = Math.random()*c.width;
+            var y = Math.random()*c.height;
+            var R = Math.random()*80;
+            var color = getColor();
+            var Circle = new circle(x,y,R) ;
+            ctx.beginPath();
+            ctx.arc(Circle.x , Circle.y , Circle.R , 0 ,Math.PI*2);
+            ctx.fillStyle = color;
+            ctx.fill();
+        }
+        createCircle();
+        function createMultiCircle() {
+            for(i = 0 ; i < 30 ; i++) {
+                createCircle();
+            }
+        }
+        createMultiCircle();
+    </script>
+</body>
+</html>

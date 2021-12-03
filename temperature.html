@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var temperature = function(celcius) {
+            this.celcius = celcius;
+            if(celcius <= -273) {
+                alert("sai gia tri nho nhat");
+                return celcius;
+                
+            }
+            this.changetoF = function(){
+                return  celcius*9/5 +32;
+            }
+            this.changetoK = function() {
+                return celcius + 273.15;
+            }
+        }
+        let Temperature = new temperature(-23);
+        let F= Temperature.changetoF();
+        alert(F + " oF ")
+        let K=Temperature.changetoK();
+        alert(K + " oK ");
+
+    </script>
+</body>
+</html>
